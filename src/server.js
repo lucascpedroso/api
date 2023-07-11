@@ -4,6 +4,7 @@ const migationsRun = require("./database/sqlite/migrations")
 
 const AppError = require("../src/utils/AppError")
 const uploadConfig = require("./configs/upload")
+const cors = require("cors")
 
 // importou o express
 const express = require("express")
@@ -13,6 +14,7 @@ migationsRun()
 
 // inicializou o express
 const app = express()
+app.use(cors())
 app.use(express.json())
 
 app.use("/files", express.static(uploadConfig.UPLOADS_FOLDER))
