@@ -14,7 +14,7 @@ class UsersRepository {
 
         const userId = await database.run(
             "INSERT INTO users (name, email, password) VALUES (?, ?, ?)",
-            [ name, email, hashedPassword ])
+            [ name, email, password ])
 
 
         return { id: userId }
